@@ -1,7 +1,30 @@
 <html>
 <head>
+  <script>
+  function MyCustomClick() {
+              var appstoreFail = "www.your_redirect_website.com";
+              //Check is device is iOS
+              var iOS = /(iPad|iPhone|iPod)/.test(navigator.userAgent);
+              var appUrlScheme = "xyz_app://";
+
+              if (iOS) {
+                  // If the app is not installed the script will wait for 2sec and redirect to web.
+                  var loadedAt = +new Date;
+                  setTimeout(function() {
+                      if (+new Date - loadedAt < 2000)
+                          window.location = appstoreFail;
+                  } ,25);
+                  // Try launching the app using URL schemes
+                  window.open(appUrlScheme, "_self");
+              } else {
+                  // Launch the website
+                  window.location = appstoreFail;
+              }
+    }
+</script>
 </head>
 <body>
 <h3> Hello World </h3>
+<p><input type="button" value="Check open in app" onclick="MyCustomClick()"></p>
 </body>
 </html>
