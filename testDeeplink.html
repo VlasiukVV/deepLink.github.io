@@ -2,11 +2,10 @@
 <head>
   <script>
   function MyCustomClick() {
-              var appstoreFail = "www.your_redirect_website.com";
+              var appstoreFail = "www.google.com";
               //Check is device is iOS
               var iOS = /(iPad|iPhone|iPod)/.test(navigator.userAgent);
-              var appUrlScheme = "xyz_app://";
-
+              var appUrlScheme = "deeplink://";
               if (iOS) {
                   // If the app is not installed the script will wait for 2sec and redirect to web.
                   var loadedAt = +new Date;
